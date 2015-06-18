@@ -1,0 +1,36 @@
+php index.php --project=[project-name]
+	creates project in folder project
+
+php index.php --project --createApp="admin"
+
+structure
+	-controller
+		-Controller.php
+		-{defaultController}.php
+	-models
+	-views
+
+{+controller}.php
+namespace {{appName}}\controllers;
+
+
+class {{Controller}} extends Controller {
+	function {{defaultAction}}() {
+		//code here;
+		echo "Welcome to {{appName}} {{Controller}} Panel";
+	}
+}
+
+php index.php -project --listApps
+php index.php -project --defaultApp //Echos the default App for the root path
+php index.php -project --defaultController //Echos the default controller
+php index.php -project --defaultController="Home" //Sets default controller to "Home"
+php index.php -project --defaultAction //Echos the default Action default = index()
+php index.php -project --defaultAction="index" //Sets default action to "index"
+php index.php -project --checkapp="admin" //true or false
+php index.php -project --app="admin" --c="Posts" //Creates controller posts in app admin
+php index.php -project --app="admin" --mc="Posts" //Creates model and controller posts in app admin
+php index.php -project --app="admin" --m="Posts" //Creates model posts in app admin
+php index.php -project --app="admin" --mvc="Posts" //Creates model,view and controller posts in app admin
+
+php index.php delete-app admin
